@@ -27,8 +27,6 @@ namespace acme {
   enum class type { stream = SOCK_STREAM, dgram = SOCK_DGRAM, raw = SOCK_RAW };
 
   class socket;
-  [[nodiscard]] auto operator==(socket const& a, socket const& b) -> bool;
-  [[nodiscard]] auto operator!=(socket const& a, socket const& b) -> bool;
 
   /// @brief partial wrapper over
   /// @note There is no logging occuring in the implementation of this API.
