@@ -12,9 +12,13 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-#include "acme/socket.h"
 
+#include "acme/socket.h"
 #include "acme/common.h"
+
+#include <fmt/printf.h>
+
+#include <netinet/in.h>
 
 #include <array>
 #include <cerrno>
@@ -25,10 +29,6 @@
 #include <optional>
 #include <span>
 #include <string_view>
-
-#include <netinet/in.h>
-
-#include <fmt/printf.h>
 
 namespace {
   using namespace std::string_literals;
