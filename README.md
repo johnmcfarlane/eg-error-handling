@@ -41,5 +41,7 @@ After cloning the repository and changing to the project root folder,
    ctest
    ```
 
-4. Study the code to understand the error-handling strategy proposed. Send questions, feedback and bug reports to the
-   author via the [GitHub issues page](https://github.com/johnmcfarlane/eg-error-handling/issues).
+4. Study the code to understand the error-handling strategy proposed.
+
+5. Send questions, feedback and bug reports to the author via the
+   [GitHub issues page](https://github.com/johnmcfarlane/eg-error-handling/issues).
