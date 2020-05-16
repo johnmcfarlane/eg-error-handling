@@ -31,9 +31,13 @@
 #include <optional>
 #include <span>
 #include <string_view>
+#include <type_traits>
 
 namespace {
   using namespace std::string_literals;
+
+  template < class T >
+  concept trivially_copyable = std::is_trivially_copyable_v<T>;
 
   /// @brief configuration information passed to the program at startup
   struct config {
@@ -81,7 +85,7 @@ namespace {
   /// @tparam Destination type of object to return
   /// @param bytes the raw memory that contains the object to be returned
   /// @return the memory as an object of type, Destination, iff bytes is the same size
-  template <typename Destination>
+  template <trivially_copyable Destination>
   auto deserialize(std::span<std::byte> const bytes) -> std::optional<Destination>
   {
     constexpr auto destination_size = sizeof(Destination);
