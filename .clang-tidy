@@ -5,6 +5,7 @@ Checks: >
   -cppcoreguidelines-pro-type-member-init,
   -fuchsia-*,
   -hicpp-member-init,
+  -llvmlibc-*,
 
 WarningsAsErrors: ''
 HeaderFilterRegex: ''
@@ -127,7 +128,7 @@ CheckOptions:
   - key:             cppcoreguidelines-pro-bounds-constant-array-index.GslHeader
     value:           ''
   - key:             cppcoreguidelines-pro-bounds-constant-array-index.IncludeStyle
-    value:           '1'
+    value:           'llvm'
   - key:             cppcoreguidelines-pro-type-member-init.IgnoreArrays
     value:           '0'
   - key:             cppcoreguidelines-pro-type-member-init.UseAssignment
@@ -253,11 +254,11 @@ CheckOptions:
   - key:             modernize-loop-convert.MinConfidence
     value:           reasonable
   - key:             modernize-loop-convert.NamingStyle
-    value:           snake_case
+    value:           lower_case
   - key:             modernize-make-shared.IgnoreMacros
     value:           '1'
   - key:             modernize-make-shared.IncludeStyle
-    value:           '1'
+    value:           'llvm'
   - key:             modernize-make-shared.MakeSmartPtrFunction
     value:           'std::make_shared'
   - key:             modernize-make-shared.MakeSmartPtrFunctionHeader
@@ -265,7 +266,7 @@ CheckOptions:
   - key:             modernize-make-unique.IgnoreMacros
     value:           '1'
   - key:             modernize-make-unique.IncludeStyle
-    value:           '1'
+    value:           'llvm'
   - key:             modernize-make-unique.MakeSmartPtrFunction
     value:           'std::make_unique'
   - key:             modernize-make-unique.MakeSmartPtrFunctionHeader
@@ -365,125 +366,125 @@ CheckOptions:
   - key:             readability-identifier-naming.IgnoreFailedSplit
     value:           '0'
   - key:             readability-identifier-naming.AbstractClassCase
-    value:           snake_case
+    value:           lower_case
   - key:             readability-identifier-naming.AbstractClassPrefix
     value:           ''
   - key:             readability-identifier-naming.ClassCase
-    value:           snake_case
+    value:           lower_case
   - key:             readability-identifier-naming.ClassPrefix
     value:           ''
   - key:             readability-identifier-naming.ClassConstantCase
-    value:           snake_case
+    value:           lower_case
   - key:             readability-identifier-naming.ClassConstantPrefix
     value:           ''
   - key:             readability-identifier-naming.ClassMemberCase
-    value:           snake_case
+    value:           lower_case
   - key:             readability-identifier-naming.ClassMethodCase
-    value:           snake_case
+    value:           lower_case
   - key:             readability-identifier-naming.ConstantCase
-    value:           snake_case
+    value:           lower_case
   - key:             readability-identifier-naming.ConstantSuffix
     value:           ''
   - key:             readability-identifier-naming.ConstexprFunctionCase
-    value:           snake_case
+    value:           lower_case
   - key:             readability-identifier-naming.ConstexprMethodCase
-    value:           snake_case
+    value:           lower_case
   - key:             readability-identifier-naming.ConstexprVariableCase
-    value:           snake_case
+    value:           lower_case
   - key:             readability-identifier-naming.EnumCase
-    value:           snake_case
+    value:           lower_case
   - key:             readability-identifier-naming.EnumPrefix
     value:           ''
   - key:             readability-identifier-naming.EnumConstantCase
-    value:           snake_case
+    value:           lower_case
   - key:             readability-identifier-naming.FunctionCase
-    value:           snake_case
+    value:           lower_case
   - key:             readability-identifier-naming.GlobalConstantCase
-    value:           snake_case
+    value:           lower_case
   - key:             readability-identifier-naming.GlobalFunctionCase
-    value:           snake_case
+    value:           lower_case
   - key:             readability-identifier-naming.GlobalVariableCase
-    value:           snake_case
+    value:           lower_case
   - key:             readability-identifier-naming.GlobalVariablePrefix
     value:           ''
   - key:             readability-identifier-naming.InlineNamespaceCase
-    value:           snake_case
+    value:           lower_case
   - key:             readability-identifier-naming.LocalConstantCase
-    value:           snake_case
+    value:           lower_case
   - key:             readability-identifier-naming.LocalConstantPrefix
     value:           ''
   - key:             readability-identifier-naming.LocalVariableCase
-    value:           snake_case
+    value:           lower_case
   - key:             readability-identifier-naming.MemberCase
-    value:           snake_case
+    value:           lower_case
   - key:             readability-identifier-naming.MemberPrefix
     value:           ''
   - key:             readability-identifier-naming.ConstantMemberCase
-    value:           snake_case
+    value:           lower_case
   - key:             readability-identifier-naming.PrivateMemberPrefix
     value:           ''
   - key:             readability-identifier-naming.ProtectedMemberPrefix
     value:           ''
   - key:             readability-identifier-naming.PublicMemberCase
-    value:           snake_case
+    value:           lower_case
   - key:             readability-identifier-naming.MethodCase
-    value:           snake_case
+    value:           lower_case
   - key:             readability-identifier-naming.PrivateMethodPrefix
     value:           ''
   - key:             readability-identifier-naming.ProtectedMethodPrefix
     value:           ''
   - key:             readability-identifier-naming.NamespaceCase
-    value:           snake_case
+    value:           lower_case
   - key:             readability-identifier-naming.ParameterCase
-    value:           snake_case
+    value:           lower_case
   - key:             readability-identifier-naming.ParameterPrefix
     value:           ''
   - key:             readability-identifier-naming.ConstantParameterCase
-    value:           snake_case
+    value:           lower_case
   - key:             readability-identifier-naming.ConstantParameterPrefix
     value:           ''
   - key:             readability-identifier-naming.ParameterPackCase
-    value:           snake_case
+    value:           lower_case
   - key:             readability-identifier-naming.PureFunctionCase
-    value:           snake_case
+    value:           lower_case
   - key:             readability-identifier-naming.PureMethodCase
-    value:           snake_case
+    value:           lower_case
   - key:             readability-identifier-naming.StaticConstantCase
-    value:           snake_case
+    value:           lower_case
   - key:             readability-identifier-naming.StaticVariableCase
-    value:           snake_case
+    value:           lower_case
   - key:             readability-identifier-naming.StaticVariablePrefix
     value:           ''
   - key:             readability-identifier-naming.StructCase
-    value:           snake_case
+    value:           lower_case
   - key:             readability-identifier-naming.TemplateParameterCase
-    value:           snake_case
+    value:           lower_case
   - key:             readability-identifier-naming.TemplateTemplateParameterCase
-    value:           snake_case
+    value:           lower_case
   - key:             readability-identifier-naming.TemplateUsingCase
-    value:           snake_case
+    value:           lower_case
   - key:             readability-identifier-naming.TemplateUsingPrefix
     value:           ''
   - key:             readability-identifier-naming.TypeTemplateParameterCase
-    value:           snake_case
+    value:           lower_case
   - key:             readability-identifier-naming.TypeTemplateParameterSuffix
     value:           ''
   - key:             readability-identifier-naming.TypedefCase
-    value:           snake_case
+    value:           lower_case
   - key:             readability-identifier-naming.TypedefSuffix
     value:           '_t'
   - key:             readability-identifier-naming.UnionCase
-    value:           snake_case
+    value:           lower_case
   - key:             readability-identifier-naming.UnionPrefix
     value:           ''
   - key:             readability-identifier-naming.UsingCase
-    value:           snake_case
+    value:           lower_case
   - key:             readability-identifier-naming.ValueTemplateParameterCase
-    value:           snake_case
+    value:           lower_case
   - key:             readability-identifier-naming.VariableCase
-    value:           snake_case
+    value:           lower_case
   - key:             readability-identifier-naming.VirtualMethodCase
-    value:           snake_case
+    value:           lower_case
   - key:             readability-identifier-naming.VirtualMethodPrefix
     value:           ''
   - key:             readability-identifier-naming.IgnoreFailedSplit
