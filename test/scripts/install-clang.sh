@@ -11,5 +11,5 @@ conan install \
   --generator cmake_find_package_multi \
   --profile ./conan-profile \
   --settings build_type=Debug \
-  --settings compiler.libcxx=libc++ \
+  --settings compiler.libcxx=libstdc++ \
   "${PROJECT_DIR}"

@@ -5,10 +5,10 @@
     "version": "0.2.0",
     "configurations": [
         {
-            "name": "animals",
+            "name": "example-program",
             "type": "cppdbg",
             "request": "launch",
-            "program": "${workspaceFolder}/build/src/animals",
+            "program": "${workspaceFolder}/build/src/example-program",
             "args": ["12"],
             "stopAtEntry": true,
             "cwd": "${workspaceFolder}",

@@ -1,21 +1,23 @@
 # Error Handling in C++ By Example
 
-[John McFarlane](mailto:eg-error-handling@john.mcfarlane.name), 2020
+[John McFarlane](mailto:eg-error-handling@john.mcfarlane.name), 2021
 
 ## Introduction
 
-This project contains a toy program written in C++ which demonstrates an error-handling strategy recommended for
-safety-critical real-time applications. It receives UDP packets on a given port and prints a message to the console.
+This project contains a toy program written in C++ which demonstrates an error-handling
+strategy recommended for robust applications. It takes a number and prints the corresponding
+letter of the alphabet.
 
-Most of the comments in the source code are written to explain the error-handling and bug handling choices made.
+Most of the comments in the source code are written to explain the error-handling
+and bug handling choices made.
 
 ## Requirements
 
-The program uses some C++20 features and has only been tested with Clang 9 on Ubuntu 19.10.
+The program uses some C++20 features and has only been tested with Clang 11 on Ubuntu 20.04.
 
-* Clang-9
-* CMake 3.13
-* fmt
+* Clang-11
+* CMake 3.16
+* fmt 7.1.3
 
 The build script uses the Conan package manager to install the fmt library.
 
@@ -35,7 +37,7 @@ After cloning the repository and changing to the project root folder,
    ../test/scripts/build-clang.sh
    ```
 
-3. Run the approval test:
+3. Run the approval tests:
 
    ```shell
    ctest
