@@ -21,7 +21,7 @@ else
     exit 1
 fi
 
-if [ "1" != "$EXIT_CODE" ]; then
+if [ "134" != "$EXIT_CODE" ]; then
     echo "FAIL: Exit code is $EXIT_CODE"
     exit 1
 fi

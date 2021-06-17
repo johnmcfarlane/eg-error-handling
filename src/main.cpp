@@ -43,6 +43,14 @@ constexpr void eg_assert(bool condition)
 #endif
 }
 
+template <typename... args>
+[[noreturn]] void eg_fatal(args&&... parameters)
+{
+  fmt::print(stderr, std::forward<args>(parameters)...);
+  fmt::print("Try --help\n");
+  std::abort();
+}
+
 constexpr auto min_number{1};
 constexpr auto max_number{26};
 
@@ -106,9 +114,7 @@ auto unsanitized_run(std::span<char*> args)
   auto const actual_num_params{args.size()};
   if (actual_num_params != expected_num_params) {
     // End User Contract violation; emit diagnostic and exit with non-zero exit code
-    fmt::print(
-        stderr, "Wrong number of arguments provided. Expected={}; Actual={}\n", expected_num_params, actual_num_params);
-    return false;
+    eg_fatal("Wrong number of arguments provided. Expected={}; Actual={}\n", expected_num_params, actual_num_params);
   }
 
   // Print help text if requested.
@@ -119,7 +125,7 @@ auto unsanitized_run(std::span<char*> args)
     fmt::print("This program prints the letter of the alphabet at the given position.\n");
     fmt::print("Usage: letter N\n");
     fmt::print("N: number between {} and {}\n", min_number, max_number);
-    return true;
+    return;
   }
 
   // Convert the argument to a number.
@@ -128,22 +134,18 @@ auto unsanitized_run(std::span<char*> args)
   auto [ptr, ec] = std::from_chars(std::begin(argument), std::end(argument), number);
   if (ec == std::errc::invalid_argument || ptr != std::end(argument)) {
     // End User Contract violation; emit diagnostic and exit with non-zero exit code
-    fmt::print(stderr, "Unrecognized number, '{}'\n", argument);
-    return false;
+    eg_fatal("Unrecognized number, '{}'\n", argument);
   }
 
   // Verify the range of number.
   if (number < min_number || number > max_number) {
     // End User Contract violation; emit diagnostic and exit with non-zero exit code
-    fmt::print(stderr, "Out-of-range number, {}\n", number);
-    return false;
+    eg_fatal("Out-of-range number, {}\n", number);
   }
 
   // The input is now successfully sanitized. If the program gets this far,
   // the End User Contract was not violated by the user.
   sanitized_run(number);
-
-  return true;
 }
 
 /// @brief program entry point
@@ -151,10 +153,5 @@ auto unsanitized_run(std::span<char*> args)
 /// @note We should **not** assume that the End User Contract is not violated by calls to main.
 auto main(int argc, char* argv[]) -> int
 {
-  if (!unsanitized_run(std::span{argv + 1, std::size_t(argc) - 1U})) {
-    fmt::print("Try --help\n");
-    return EXIT_FAILURE;
-  }
-
-  return EXIT_SUCCESS;
+  unsanitized_run(std::span{argv + 1, std::size_t(argc) - 1U});
 }
